@@ -1,25 +1,15 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-    <main-tab :main-tab-data="mainTabData"></main-tab>
-  </div>
+    <div id="app">
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">
-import MainTab from './components/MainTab'
-import {homeTabData} from '../common/constant'
-export default {
-  data () {
-    return {
-      mainTabData: homeTabData
-    }
-  },
-  components: {
-    MainTab
-  }
-}
+    export default {}
 </script>
 <style scoped lang="scss">
-#app {
-}
+    #app {
+    }
 </style>

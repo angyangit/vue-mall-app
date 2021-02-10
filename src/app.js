@@ -6,6 +6,7 @@ import store from './store'
 import './styles/index.scss'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
+
 const VConsole = require('vconsole')
 const vConsole = new VConsole()
 vConsole.setOption('maxLogNumber', 5000)
@@ -16,14 +17,14 @@ const errorimage = require('./assets/images/ic_launcher.png')
 const loadimage = require('./assets/images/ic_launcher.png')
 
 Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  error: errorimage,
-  loading: loadimage,
-  attempt: 1
+    preLoad: 1.3,
+    error: errorimage,
+    loading: loadimage,
+    attempt: 1
 })
 new Vue({
-  el: '#app',
-  router,
-  store,
-  render: (h) => h(App),
+    el: '#app',
+    router,
+    store,
+    render: (h) => h(App),
 })

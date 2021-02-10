@@ -1,6 +1,6 @@
-
 const state = {
-  token:''
+    token: '',
+    loginPage:false
 }
 
 export default state
