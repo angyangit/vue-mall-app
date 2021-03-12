@@ -1,13 +1,14 @@
 <template>
     <div class='slider-wrapper' ref='sliderWrapper'>
         <div class='slider-container' v-show='sliderData.length>0'>
-            <div
+            <a
                     class='slider-item'
                     v-for='(item,index) in sliderData'
                     @click=''
+                    :href='item.url'
                     :key='index'>
                 <img class='slider-img' :src='item.pic' alt=''>
-            </div>
+            </a>
         </div>
         <div class='point-wrapper'>
             <span class='default-point' v-for='(item,index) in sliderData'

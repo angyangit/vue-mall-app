@@ -25,7 +25,55 @@ module.exports = merge(common, {
         // 让同网域其他设备访问本地服务
         host: '172.20.10.2'
     },
-
+    module: {
+        rules: [
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|svg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            esModule: false,//不配置导致图片不显示
+                            limit: 10240,
+                            name: 'imgs/[name].[contenthash:5].[ext]'
+                        }
+                    },
+                    // {
+                    //     // 对图片进行压缩处理，配置项参考官方文档
+                    //     loader: 'image-webpack-loader',
+                    //     options: {
+                    //         mozjpeg: {
+                    //             progressive: true,
+                    //             quality: 65
+                    //         },
+                    //         optipng: {
+                    //             enabled: false
+                    //         },
+                    //         pngquant: {
+                    //             quality: '65-90',
+                    //             speed: 4
+                    //         },
+                    //         gifsicle: {
+                    //             interlaced: false
+                    //         },
+                    //         webp: {
+                    //             quality: 75
+                    //         }
+                    //     }
+                    // }
+                ]
+            }
+        ]
+    },
     output: {
         filename: 'js/[name].[hash:5].js',
         path: path.resolve(__dirname, '../dist')
