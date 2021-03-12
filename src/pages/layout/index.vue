@@ -1,11 +1,11 @@
 <template>
     <div id="layout">
+        <main-tab :main-tab-data="mainTabData"></main-tab>
         <transition name="slide">
             <keep-alive>
                 <router-view></router-view>
             </keep-alive>
         </transition>
-        <main-tab :main-tab-data="mainTabData"></main-tab>
     </div>
 </template>
 

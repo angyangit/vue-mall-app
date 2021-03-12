@@ -2,7 +2,7 @@
     <div class='home-root'>
         <search-bar
                 :bgColorPercent='bgColorPercent'
-        pageType='home'></search-bar>
+                pageType='home'></search-bar>
         <scroll-view
                 class="home-srcoll"
                 ref='homeScroll'
@@ -40,7 +40,7 @@
                                     :key="index"
                                     @click.prevent=""
                             >
-                                <img class="cate-icon" v-lazy="item.icon"/>
+                                <img class="cate-icon" :src="item.icon"/>
                                 <span class="cate-name">{{ item.name }}</span>
                             </a>
                         </div>
@@ -68,11 +68,10 @@
                         <div class="dis-container" ref="disWrapper">
                             <a
                                     class="dis-item"
-                                    href=""
                                     v-for="(item, index) in disList"
+                                    :href="item.href"
                                     :key="index"
                                     :style="setStyle(index)"
-                                    @click.prevent=""
                             >
                                 <img
                                         :style="getImgWidth(index)"
@@ -142,12 +141,16 @@
             }
         },
         created() {
+            // this.cateTouchInfo = {windowW: window.innerWidth}
+            // this.disTouchInfo = {distant: 0}
+            // this.getHomeAllInfo()
+        },
+        activated() {
+            console.log('home activated')
             this.cateTouchInfo = {windowW: window.innerWidth}
             this.disTouchInfo = {distant: 0}
-            this.getHomeAllInfo()
-        },
-        mounted() {
             this.initDisOrginLocation()
+            this.getHomeAllInfo()
         },
         methods: {
             cateTouchStart(e) {

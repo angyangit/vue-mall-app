@@ -17,6 +17,24 @@ const ApiConstant = {
     //综合搜索、筛选、排序
     PRODUCT_SEARCH: '/product/search',
     //获取前台商品详情
-    PRODUCT_DETAIL: '/product/detail'
+    PRODUCT_DETAIL: '/product/detail',
+
+    //添加商品到购物车
+    ADD_SHOP_CAR: '/cart/add',
+    //获取某个会员的购物车列表
+    SHOP_CAR_LIST: '/cart/list',
+    SHOP_CAR_UPDATE_QUANTITY: '/cart/update/quantity',
+    SHOP_CAR_DELETE: '/cart/delete',
+    SHOP_CAR_CLEAR: '/cart/clear',
+
+    //会员登录
+    LOGIN: '/sso/login',
+    //获取会员信息
+    MEMBER_INFO: '/sso/info',
+
+    //根据购物车信息生成确认单信息
+    ORDER_CONFIRM:'/order/generateConfirmOrder'
+
+
 }
 export default ApiConstant

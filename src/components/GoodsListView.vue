@@ -4,7 +4,7 @@
             <div class='multiple-wrapper clearfix'>
                 <div class='multiple-container'
                      v-for='item in goodsList'
-                     @click='selectProduct(item.id)'
+                     @click='selectProduct(item.id,item.productCategoryId)'
                 >
                     <div class='multiple-content'>
                         <img class='multiple-img' v-lazy='item.pic'>
@@ -98,8 +98,8 @@
             }
         },
         methods: {
-            selectProduct(id) {
-                this.$router.push(`/product/${id}`)
+            selectProduct(id,productCategoryId) {
+                this.$router.push({path:`/product/${id}`,query:{productCategoryId}})
             }
         }
     }

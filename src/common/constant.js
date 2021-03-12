@@ -18,13 +18,41 @@ export const cateList = [
     {name: '京东到家', icon: require('../assets/images/download-17.png')},
 ]
 export const disList = [
-    {icon: require('../assets/images/download-3.png')},
-    {icon: require('../assets/images/download-1.png')},
-    {icon: require('../assets/images/download-2.png')},
-    {icon: require('../assets/images/download-3.png')},
-    {icon: require('../assets/images/download-1.png')},
-    {icon: require('../assets/images/download-2.png')},
-    {icon: require('../assets/images/download-3.png')},
-    {icon: require('../assets/images/download-1.png')},
-    {icon: require('../assets/images/download-2.png')},
+    {
+        icon: require('../assets/images/download-3.png'),
+        href: 'https://h5.m.jd.com/babelDiy/Zeus/3xkqxo2L3ZqV66nYTFjuVp4Yt7tG/index.html?babelChannel=ttt17'
+    },
+    {
+        icon: require('../assets/images/download-1.png'),
+        href: 'https://prodev.m.jd.com/mall/active/2egWWBQ51qSZfgsdqojsioe51ZHe/index.html'
+    },
+    {
+        icon: require('../assets/images/download-2.png'),
+        href: 'https://pro.m.jd.com/mall/active/4LzqdWwuvguL9D5sDx6HsQeiCLNz/index.html'
+    },
+    {
+        icon: require('../assets/images/download-3.png'),
+        href: 'https://h5.m.jd.com/babelDiy/Zeus/3xkqxo2L3ZqV66nYTFjuVp4Yt7tG/index.html?babelChannel=ttt17'
+    },
+    {
+        icon: require('../assets/images/download-1.png'),
+        href: 'https://prodev.m.jd.com/mall/active/2egWWBQ51qSZfgsdqojsioe51ZHe/index.html',
+
+    },
+    {
+        icon: require('../assets/images/download-2.png'),
+        href: 'https://pro.m.jd.com/mall/active/4LzqdWwuvguL9D5sDx6HsQeiCLNz/index.html'
+    },
+    {
+        icon: require('../assets/images/download-3.png'),
+        href: 'https://h5.m.jd.com/babelDiy/Zeus/3xkqxo2L3ZqV66nYTFjuVp4Yt7tG/index.html?babelChannel=ttt17'
+    },
+    {
+        icon: require('../assets/images/download-1.png'),
+        href: 'https://prodev.m.jd.com/mall/active/2egWWBQ51qSZfgsdqojsioe51ZHe/index.html',
+    },
+    {
+        icon: require('../assets/images/download-2.png'),
+        href: 'https://pro.m.jd.com/mall/active/4LzqdWwuvguL9D5sDx6HsQeiCLNz/index.html'
+    },
 ]

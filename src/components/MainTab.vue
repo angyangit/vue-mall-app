@@ -12,12 +12,16 @@
 </template>
 
 <script>
-    import store from '../store'
+    import {mapMutations, mapGetters} from 'vuex'
+    import {SET_TO_LOGIN_PAGE} from '../store/mutation-types';
 
     export default {
         props: {
             mainTabData: Array,
             default: [],
+        },
+        computed: {
+            ...mapGetters(['token'])
         },
         data() {
             return {
@@ -26,8 +30,8 @@
         },
         methods: {
             tabSelect(item) {
-                if (item.path === '/mine' && !store.getters.token) {
-                    this.$router.push({path: '/login', query: item.path})
+                if (item.path === '/mine' && !this.token) {
+                    this.setToLoginPage(true)
                 } else {
                     this.currentIndex = item.index
                     this.$router.push(item.path)
@@ -37,7 +41,10 @@
                 return this.currentIndex === index
                     ? this.mainTabData[index].selectImg
                     : this.mainTabData[index].defaultImg
-            }
+            },
+            ...mapMutations({
+                setToLoginPage: SET_TO_LOGIN_PAGE
+            })
         },
         watch: {
             $route() {
@@ -65,8 +72,10 @@
         bottom: 0;
         right: 0;
         background-color: white;
+        box-sizing: border-box;
+        border-top: 1px solid #ddd;
         display: flex;
-        box-shadow: 5px 5px 5px 5px #ccc;
+        box-shadow: 5px 5px 5px 5px #f9f9f9;
         justify-content: space-between;
         .main-tab-item {
             height: 100%;

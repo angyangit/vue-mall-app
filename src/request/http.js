@@ -5,6 +5,7 @@
 import axios from 'axios'
 import router from '../router'
 import store from '../store'
+import {SET_TO_LOGIN_PAGE} from '../store/mutation-types';
 
 /**
  * 跳转登录页
@@ -28,7 +29,7 @@ const errorHandle = (status, other) => {
     switch (status) {
         // 401: 未登录状态，跳转登录页
         case 401:
-            toLogin()
+            store.commit(SET_TO_LOGIN_PAGE, true)
             break
         // 403 token过期
         // 清除token并跳转登录页
@@ -67,7 +68,7 @@ instance.interceptors.request.use(
         // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码
         // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。
         const token = store.getters.token
-        token && (config.headers.Authorization = token)
+        token && (config.headers['Authorization']  = token)
         return config
     },
     (error) => Promise.error(error)
@@ -82,7 +83,7 @@ instance.interceptors.response.use(
             console.log('response  succ =>', data.data)
             return data.data
         } else {
-            console.log('response  err1 =>', res)
+            errorHandle(data.code, data.message)
             return Promise.reject(data)
         }
     },

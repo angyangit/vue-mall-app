@@ -4,8 +4,11 @@ const matutaions = {
     [types.SET_TOKEN](state, token) {
         state.token = token
     },
-    [types.SET_LOGIN_PAGE](state, loginPage) {
-        state.loginPage = loginPage
+    [types.SET_TO_LOGIN_PAGE](state, loginPage) {
+        state.toLoginPage = loginPage
+    },
+    [types.SET_MEMBER_INFO](state, memberInfo) {
+        state.memberInfo = memberInfo
     }
 }
 export default matutaions

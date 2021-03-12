@@ -25,6 +25,7 @@ module.exports = merge(common, {
         // 让同网域其他设备访问本地服务
         host: '172.20.10.2'
     },
+
     output: {
         filename: 'js/[name].[hash:5].js',
         path: path.resolve(__dirname, '../dist')

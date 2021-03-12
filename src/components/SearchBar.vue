@@ -1,20 +1,23 @@
 <template>
     <div id="searchbar-warpper"
          ref='searchBar'
-         :class='getBgColor'>
+         :class='getBgColor'
+    style=''>
         <i :class='getLeftIcon' @click='leftClick'></i>
         <div class="ipt-warpper"
-             v-if='showIpt'>
+             v-if='showIpt'
+             :class='iptBg'>
+            <i class="icon-sousuo ic-search"></i>
+            <div v-if='isSearch' style='color: #ddd;width: 100%;text-align: left' @click='toSearchPage'>
+                输入内容
+            </div>
             <input
                     class="ipt-search"
                     v-model="searchKey"
                     placeholder="输入内容"
-                    :class='iptBg'
-            />
-
-            <i class="icon-sousuo ic-search"></i>
+                    v-else/>
         </div>
-        <p class="ipt-warpper" v-else>{{title}}</p>
+        <p class="ipt-warpper-title" v-else>{{title}}</p>
         <i :class="getRightIcon"
            @click.stop='rightClick'></i>
         <div class='pop-mask' v-show='isShowPop'
@@ -42,6 +45,7 @@
     const PAGE_TYPE_HOME = 'home'
     const PAGE_TYPE_CATE = 'cate'
     const PAGE_TYPE_SHOPCAR = 'shopcar'
+    const PAGE_TYPE_SEARCH = 'search'
     export default {
         name: 'searchbar',
         props: {
@@ -56,6 +60,9 @@
             }
         },
         computed: {
+            isSearch() {
+                return this.pageType === PAGE_TYPE_HOME || this.pageType === PAGE_TYPE_CATE
+            },
             showIpt() {
                 return this.pageType === PAGE_TYPE_HOME || this.pageType === PAGE_TYPE_CATE
             },
@@ -108,6 +115,9 @@
             },
             rightClick() {
                 this.isShowPop = true
+            },
+            toSearchPage() {
+                this.$router.push('/search')
             }
         },
         watch: {
@@ -180,28 +190,34 @@
                 }
             }
         }
-
+        .ipt-warpper-title {
+            text-align: center;
+            flex: 1;
+            font-size: 14px;
+        }
         .ipt-warpper {
             position: relative;
-            display: inline-block;
             flex-grow: 1;
             text-align: center;
             color: #333;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
+            height: 30px;
+            top: 10px;
+            align-items: center;
+            border-radius: 15px;
+            display: flex;
+            padding: 0 10px;
+            background-color: rgba(0, 0, 0, .4);
             .ipt-search {
-                position: absolute;
-                left: 0;
-                top: 10px;
-                height: 30px;
-                border-radius: 15px;
-                border: 0;
-                width: 100%;
                 font-size: 16px;
+                line-height: 30px;
+                height: 100%;
                 box-sizing: border-box;
-                padding-left: 40px;
                 border: 0;
                 outline: none;
+                padding-left: 10px;
+                background-color: transparent;
                 &::placeholder {
                     color: $color-text-white;
                 }
@@ -209,29 +225,29 @@
                     caret-color: $color-theme;
                 }
             }
-            .ipt-home {
-                background-color: white;
-            }
-            .ipt-cate {
-                background-color: #f1f1f1;
-            }
             .ic-search {
-                position: absolute;
-                left: 10px;
                 color: #ddd;
             }
         }
+        .ipt-home {
+            background-color: white;
+        }
+        .ipt-cate {
+            background-color: #f1f1f1;
+        }
+
         .def-icon {
             font-weight: 600;
             font-size: 20px;
             padding-left: 10px;
             padding-right: 10px;
+            color: #666666;
         }
         .icon-home {
             color: white;
         }
         .icon-cate {
-            color: #ccc;
+            color: #666666;
         }
     }
 </style>
